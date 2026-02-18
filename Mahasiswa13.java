@@ -2,7 +2,7 @@ class Mahasiswa{
     String nama;
     String nim;
     String kelas;
-    String ipk;
+    double ipk;
 
     void tampilkanInformasi(){
         System.out.println("Nama : " + nama);
@@ -15,7 +15,7 @@ class Mahasiswa{
         kelas = kelasBaru;
     }
 
-    void ubahIpk(String ipkBaru){
+    void ubahIpk(double ipkBaru){
         ipk = ipkBaru;
     }
 
@@ -32,5 +32,12 @@ class Mahasiswa{
     }
 
     public Mahasiswa(){
+    }
+
+    public Mahasiswa (String nm, String nim, double ipk, String kls){
+        nama = nm;
+        this.nim = nim;
+        this.ipk = ipk;
+        kelas = kls;
     }
 }
