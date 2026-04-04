@@ -1,26 +1,41 @@
 package Praktikum05;
 
+import java.util.Scanner;
+
 public class mahasiswaDemo {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
         mahasiswaBerprestasi13 list = new mahasiswaBerprestasi13();
-        mahasiswa13 m1 = new mahasiswa13("123", "zidan", "2A", 3.2);
-        mahasiswa13 m2 = new mahasiswa13("124", "ayu", "2A", 3.5);
-        mahasiswa13 m3 = new mahasiswa13("125", "sofi", "2A", 3.1);
-        mahasiswa13 m4 = new mahasiswa13("126", "sita", "2A", 3.9);
-        mahasiswa13 m5 = new mahasiswa13("127", "miki", "2A", 3.7);
+        System.out.print("Masukkan jumlah mahasiswa: ");
+        int jumlah = sc.nextInt();
+        sc.nextLine();
+        String dummy;
+       for (int i=0; i < jumlah; i++){
+        mahasiswa13 m = new mahasiswa13();
+           System.out.println("Masukkan Data Mahasiswa ke-" + (i+1));
+           System.out.print("NIM: ");
+           m.nim = sc.nextLine();
+           System.out.print("Nama: ");
+           m.nama = sc.nextLine();
+           System.out.print("Kelas: ");
+           m.kelas = sc.nextLine();
+           System.out.print("IPK: ");
+           dummy = sc.nextLine();
+           m.ipk = Float.parseFloat(dummy);
+           list.tambah(m);
+           System.out.println("------------------------------");
+           
+       }
 
-        list.tambah(m1);
-        list.tambah(m2);
-        list.tambah(m3);
-        list.tambah(m4);
-        list.tambah(m5);
-
-        System.out.println("Data mahasiswa sebelum sorting: ");
-        list.tampil();
-
-
-        System.out.println("Data mahasiswa setelah soorting bedasarkan IPK (DESC): ");
-        list.bubleSort();
-        list.tampil();
+       
+       System.out.println("Data yang sudah terurut menggunakan INSERTION SORT (ASC)");
+       System.out.println("=================================");
+       list.insertionSort();
+       list.tampil();
+       System.out.println("Data yang sudah terurut menggunakan SELECTION SORT (ASC)");
+       System.out.println("=================================");
+       list.selectionSort();
+       list.tampil();
     }
 }
